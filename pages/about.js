@@ -10,10 +10,15 @@ const About = () => (
     <p>
       We make websites that work <em>even in space</em>.
     </p>
-
-    <Link href="/">
-      <a>← Home</a>
-    </Link>
+    <p>
+      When we are not redefining the possible, we unwind with{' '}
+      <Link href="/show">
+        <a>our fave TV show</a>
+      </Link>.{' '}
+      <span role="img" aria-label="Bat">
+        🦇
+      </span>
+    </p>
   </Layout>
 )
 

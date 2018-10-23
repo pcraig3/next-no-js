@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Header from './Header'
 
 const layoutStyle = {
   fontSize: 28,
@@ -14,6 +15,7 @@ const Layout = props => (
       <title>{props.title ? `${props.title} — ` : null} TV srch</title>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
+    <Header />
     {props.children}
   </div>
 )

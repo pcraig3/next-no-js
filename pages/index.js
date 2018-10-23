@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import Layout from '../components/Layout'
 
 const Index = () => (
@@ -8,10 +7,6 @@ const Index = () => (
     <p>
       Thank <em>us</em> for blowing your mind with our daring innovation.
     </p>
-
-    <Link href="/about">
-      <a>About us →</a>
-    </Link>
   </Layout>
 )
 
