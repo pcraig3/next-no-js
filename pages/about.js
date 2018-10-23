@@ -12,7 +12,7 @@ const About = () => (
     </p>
     <p>
       When we are not redefining the possible, we unwind with{' '}
-      <Link href="/show">
+      <Link href={{ pathname: '/show', query: { q: 'batman+beyond' } }}>
         <a>our fave TV show</a>
       </Link>.{' '}
       <span role="img" aria-label="Bat">
