@@ -1,3 +1,5 @@
+import { Component } from 'react'
+
 const _baseStyle = {
   fontSize: 28,
   fontFamily: 'sans-serif',
@@ -42,25 +44,44 @@ const buttonStyleEnabled = {
   backgroundColor: 'cyan',
 }
 
-const Form = ({ handleSubmit, handleChange, value }) => (
-  <form onSubmit={handleSubmit}>
-    <label>
-      <span style={visuallyHidden}>Search for a TV show:</span>
-      <input
-        style={inputStyle}
-        type="text"
-        value={value}
-        onChange={handleChange}
-        placeholder={'Search…'}
-      />
-    </label>
-    <input
-      style={Boolean(!value) ? buttonStyleDisabled : buttonStyleEnabled}
-      type="submit"
-      value="Submit"
-      disabled={Boolean(!value)}
-    />
-  </form>
-)
+class Form extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { allowDisableButton: false }
+  }
+
+  componentDidMount() {
+    this.setState({ allowDisableButton: true })
+  }
+
+  render() {
+    const { handleSubmit, handleChange, value } = this.props
+    return (
+      <form onSubmit={handleSubmit} action="/show" method="get">
+        <label>
+          <span style={visuallyHidden}>Search for a TV show:</span>
+          <input
+            style={inputStyle}
+            type="text"
+            name="q"
+            value={value}
+            onChange={handleChange}
+            placeholder={'Search…'}
+          />
+        </label>
+        <input
+          style={
+            this.state.allowDisableButton && Boolean(!value)
+              ? buttonStyleDisabled
+              : buttonStyleEnabled
+          }
+          type="submit"
+          value="Submit"
+          disabled={this.state.allowDisableButton && Boolean(!value)}
+        />
+      </form>
+    )
+  }
+}
 
 export default Form
