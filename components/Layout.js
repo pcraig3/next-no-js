@@ -1,3 +1,5 @@
+import Head from 'next/head'
+
 const layoutStyle = {
   fontSize: 28,
   fontFamily: 'sans-serif',
@@ -6,6 +8,14 @@ const layoutStyle = {
   paddingRight: 10,
 }
 
-const Layout = props => <div style={layoutStyle}>{props.children}</div>
+const Layout = props => (
+  <div style={layoutStyle}>
+    <Head>
+      <title>{props.title ? `${props.title} — ` : null} TV srch</title>
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    </Head>
+    {props.children}
+  </div>
+)
 
 export default Layout

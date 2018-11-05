@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Layout from '../components/Layout'
 
 const About = () => (
-  <Layout>
+  <Layout title={'About us'}>
     <h1>About us</h1>
     <p>
       We use <em>every part</em> of the avocado.
